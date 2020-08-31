@@ -158,7 +158,9 @@ class LiveChat:
                     continuation = self._check_pause(continuation)
                     contents = self._get_contents(continuation, session, headers)
                     metadata, chatdata = self._parser.parse(contents)
-                    timeout = metadata['timeoutMs'] / 1000
+                    #timeout = metadata['timeoutMs'] / 1000
+                    # make it query more often
+                    timeout = 0.5
                     chat_component = {
                         "video_id": self._video_id,
                         "timeout": timeout,
